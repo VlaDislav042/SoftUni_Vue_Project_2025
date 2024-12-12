@@ -1,3 +1,13 @@
+<script>
+import Categories from './Product/components/Categories.vue';
+
+export default {
+  components: {
+    Categories,
+  },
+};
+</script>
+
 <template>
-  <p></p>
+  <Categories />
 </template>
