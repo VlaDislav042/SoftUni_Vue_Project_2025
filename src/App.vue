@@ -6,6 +6,7 @@ import Cart from './pages/Cart.vue';
 import Contacts from './pages/Contacts.vue';
 import Home from './pages/Home.vue';
 import Products from './pages/Products.vue';
+import Register from './pages/Register/Register.vue';
 
 export default {
   components: {
@@ -16,6 +17,7 @@ export default {
     Home,
     About,
     Contacts,
+    Register,
 
   },
   data() {
@@ -36,5 +38,5 @@ export default {
   <main>
     <component :is="page" />
   </main>
-  <AppFooter />
+  <AppFooter @select="onSelect" />
 </template>

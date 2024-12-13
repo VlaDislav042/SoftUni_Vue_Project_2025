@@ -18,6 +18,7 @@ export default {
         <li><a href="#" @click.prevent="$emit('select', 'Products')">Menu</a></li>
         <li><a href="#" @click.prevent="$emit('select', 'About')">About</a></li>
         <li><a href="#" @click.prevent="$emit('select', 'Contacts')">Contacts</a></li>
+        <li><a href="#" @click.prevent="$emit('select', 'Register')">Register</a></li>
         <li><a href="#" @click.prevent="$emit('select', 'Cart')">Cart</a></li> <!--role="button"-->
       </ul>
     </nav>
@@ -30,6 +31,7 @@ header {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  margin-bottom: 4rem;
   background-color: #fffbe6;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
