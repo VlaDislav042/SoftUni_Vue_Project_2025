@@ -11,13 +11,13 @@ export default {
 
 <template>
   <article>
-    <img :src="product.images[0]" :alt="product.title">
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
-    <p><b>Price</b>: {{ product.price }}$</p>
+    <img :src="product.image">
+    <h2>{{ product.name }}</h2>
+    <p><b>Products</b>: {{ product.ingredients.join(", ") }}</p>
+    <p><b>Calories</b>: {{ product.caloriesPerServing }} kcal </p>
     <footer>
       <button class="secondary outline">
-        Add to cart 🛒
+        Add to read 📖
       </button>
     </footer>
   </article>

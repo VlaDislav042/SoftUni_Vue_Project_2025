@@ -1,36 +1,42 @@
 <script>
-import { products } from '../constants/products';
-import Categories from './Product/components/Categories.vue';
+import { getAllProducts } from '../services/products';
 import ProductCard from './Product/components/ProductCard.vue';
 
 export default {
   components: {
-    Categories,
     ProductCard,
   },
   data() {
     return {
       activeCategory: '',
+      isLoading: true,
+      products: [],
     };
   },
   computed: {
     visibleProducts() {
-      return this.activeCategory === '' ? products : products.filter(prod => prod.category === this.activeCategory);
+      return this.activeCategory === '' ? this.products : this.products.filter(prod => prod.categories === this.activeCategory);
     },
+  },
+  async created() {
+    this.products = await getAllProducts();
+    this.isLoading = false;
+    const res = await getAllProducts();
+    console.log(res);
   },
   methods: {
     onSelect(value) {
       this.activeCategory = this.activeCategory === value ? '' : value;
     },
   },
+
 };
 </script>
 
 <template>
-  <div>
-    <Categories :active="activeCategory" @select="onSelect" />
-  </div>
-  <div class="products">
+  <progress v-if="isLoading" />
+
+  <div v-else-if="visibleProducts.length > 0" class="products">
     <ProductCard v-for="prod in visibleProducts" :key="prod.title" :product="prod" />
   </div>
 </template>
