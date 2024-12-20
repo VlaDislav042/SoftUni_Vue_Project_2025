@@ -1,6 +1,21 @@
 <script>
 export default {
-  emits: ['select'],
+  data() {
+    return {
+      links: [
+        { name: 'home', label: 'Home' },
+        { name: 'products', label: 'Products' },
+        { name: 'about', label: 'About' },
+        { name: 'contacts', label: 'Contacts' },
+        { name: 'register', label: 'Register' },
+      ],
+    };
+  },
+  methods: {
+    onCartClick() {
+      this.$router.push({ name: 'cart' });
+    },
+  },
 };
 </script>
 
@@ -9,17 +24,20 @@ export default {
     <nav>
       <ul class="nav-list">
         <li class="logo-container">
-          <img src="file:///C:/Users/Acer/Downloads/46c1b88c-af0c-4ba2-aef3-50f61752ac55.webp"
-            @click.prevent="$emit('select', 'Home')">
+          <img src="file:///C:/Users/Acer/Downloads/46c1b88c-af0c-4ba2-aef3-50f61752ac55.webp">
         </li>
       </ul>
       <ul class="nav-list">
-        <li><a href="#" @click.prevent="$emit('select', 'Home')">Home</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'Products')">Menu</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'About')">About</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'Contacts')">Contacts</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'Register')">Register</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'Cart')">Cart</a></li> <!--role="button"-->
+        <li v-for="link in links" :key="link.path">
+          <router-link :to="{ name: link.name }">
+            {{ link.label }}
+          </router-link>
+        </li>
+        <li>
+          <button type="button" class="primary" @click="onCartClick">
+            Cart
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -78,7 +96,7 @@ nav {
   gap: 1.5rem;
 }
 
-.nav-list a {
+.nav-list a button {
   text-decoration: none;
   color: #333;
   font-size: 1rem;
