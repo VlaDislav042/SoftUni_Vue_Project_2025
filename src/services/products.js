@@ -34,3 +34,18 @@ export async function getAllProducts() {
     return [];
   }
 };
+
+export async function getProductsByIds(ids) {
+  // eslint-disable-next-line antfu/if-newline, no-useless-return
+  if (!Array.isArray(ids)) return;
+
+  try {
+    const promises = ids.map(id => axiosDJ.get(`/${ENDPOINT}/${id}`));
+    const response = await Promise.allSettled(promises);
+    return response.filter(entry => entry.status === 'fulfilled').map(entry => entry.value.data);
+  }
+  catch (error) {
+    console.error('Error fetching or modifying recipes:', error);
+    return [];
+  }
+}

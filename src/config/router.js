@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import About from '../pages/About.vue';
 import Cart from '../pages/Cart.vue';
 import Contacts from '../pages/Contacts.vue';
+import Favorites from '../pages/Favorites.vue';
 import Home from '../pages/Home.vue';
 import NotFound from '../pages/NotFound.vue';
 import SingleProducts from '../pages/Product/components/SingleProducts.vue';
@@ -16,6 +17,7 @@ const routes = [
   { path: '/register', name: 'register', component: Register },
   { path: '/cart', name: 'cart', component: Cart },
   { path: '/products/:id', name: 'singleProduct', component: SingleProducts },
+  { path: '/favorites', name: 'favorites', component: Favorites },
 
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 

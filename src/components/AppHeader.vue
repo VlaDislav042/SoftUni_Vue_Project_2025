@@ -8,6 +8,8 @@ export default {
         { name: 'about', label: 'About' },
         { name: 'contacts', label: 'Contacts' },
         { name: 'register', label: 'Register' },
+        { name: 'favorites', label: 'Favorites' },
+
       ],
     };
   },
