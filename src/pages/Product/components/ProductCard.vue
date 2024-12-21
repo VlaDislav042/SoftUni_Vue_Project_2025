@@ -36,3 +36,46 @@ export default {
     </footer>
   </article>
 </template>
+
+<style scoped>
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+h2,
+p {
+  margin: 10px 0;
+}
+
+button {
+  margin-top: 10px;
+  flex: 1;
+}
+
+button+button {
+  margin-left: 10px;
+}
+</style>
