@@ -7,8 +7,9 @@ export default {
         { name: 'products', label: 'Products' },
         { name: 'about', label: 'About' },
         { name: 'contacts', label: 'Contacts' },
-        { name: 'register', label: 'Register' },
         { name: 'liked', label: 'Liked' },
+        { name: 'register', label: 'Register' },
+        { name: 'login', label: 'Login' },
 
       ],
     };
