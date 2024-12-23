@@ -8,7 +8,7 @@ export const useFavoritesStore = defineStore('favoriteStore', {
     isLoading: false,
   }),
   getters: {
-
+    favoriteProducts: state => state.products.filter(prod => state.favorites.has(prod.id)),
   },
   actions: {
     isFavorite(id) {
@@ -28,6 +28,9 @@ export const useFavoritesStore = defineStore('favoriteStore', {
       const response = await getProductsByIds(Array.from(this.favorites));
       this.products = response;
       this.isLoading = false;
+    },
+    resetProducts() {
+      this.products = [];
     },
   },
 });

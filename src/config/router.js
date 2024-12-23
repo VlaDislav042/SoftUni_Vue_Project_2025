@@ -17,7 +17,7 @@ const routes = [
   { path: '/register', name: 'register', component: Register },
   { path: '/cart', name: 'cart', component: Cart },
   { path: '/products/:id', name: 'singleProduct', component: SingleProducts },
-  { path: '/favorites', name: 'favorites', component: Favorites },
+  { path: '/favorites', name: 'liked', component: Favorites },
 
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 
