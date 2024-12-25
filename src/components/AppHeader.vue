@@ -1,5 +1,6 @@
 <script>
 export default {
+
   data() {
     return {
       links: [
@@ -13,6 +14,14 @@ export default {
 
       ],
     };
+  },
+  computed: {
+    username() {
+      return this.userStore.user?.username ?? '';
+    },
+  },
+  async created() {
+    await this.userStore.reAuthUser();
   },
   methods: {
     onCartClick() {
@@ -39,6 +48,11 @@ export default {
         <li>
           <button type="button" class="primary" @click="onCartClick">
             Cart
+          </button>
+        </li>
+        <li>
+          <button type="button" class="outlined">
+            {{ username }}
           </button>
         </li>
       </ul>

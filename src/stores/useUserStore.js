@@ -22,18 +22,18 @@ export const useUserStore = defineStore('userStore', {
     },
     async reAuthUser() {
       if (this.user) {
-        // eslint-disable-next-line no-useless-return
-        return;
+        return false;
       }
       const persistedUserToken = getCookie(COOKIE_NAME);
       if (!persistedUserToken) {
-        // eslint-disable-next-line no-useless-return
-        return;
+        return false;
       }
       const profile = await getCurrentUser(persistedUserToken);
       if (profile) {
         this.user = profile;
+        return true;
       }
+      return false;
     },
   },
 });

@@ -28,7 +28,7 @@ export async function getCurrentUser(accessToken) {
     return res.data;
   }
   catch (e) {
-    console.error('Ops something went wrong', e);
+    console.error('Error', e);
     return null;
   }
 }

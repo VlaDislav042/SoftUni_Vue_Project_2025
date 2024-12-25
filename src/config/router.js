@@ -9,6 +9,7 @@ import NotFound from '../pages/NotFound.vue';
 import SingleProducts from '../pages/Product/components/SingleProducts.vue';
 import Products from '../pages/Products.vue';
 import Register from '../pages/Register/Register.vue';
+import { useUserStore } from '../stores/useUserStore';
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -18,9 +19,36 @@ const routes = [
   { path: '/register', name: 'register', component: Register },
   { path: '/cart', name: 'cart', component: Cart },
   { path: '/products/:id', name: 'singleProduct', component: SingleProducts },
-  { path: '/favorites', name: 'liked', component: Favorites },
-  { path: '/login', name: 'login', component: Login },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+    beforeEnter: async () => {
+      const store = useUserStore();
+      if (store.user) {
+        return false;
+      }
 
+      const isLogged = await store.reAuthUser();
+      if (isLogged) {
+        return false;
+      }
+    },
+  },
+  {
+    path: '/favorites',
+    name: 'liked',
+    component: Favorites,
+    beforeEnter: async () => {
+      const store = useUserStore();
+      if (!store.user) {
+        const isLogged = await store.reAuthUser();
+        if (!isLogged) {
+          return { name: 'login' };
+        }
+      }
+    },
+  },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 
 ];
