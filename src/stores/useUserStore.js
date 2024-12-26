@@ -11,6 +11,9 @@ export const useUserStore = defineStore('userStore', {
       user: null,
     };
   },
+  getters: {
+    isUserLocked: state => !!state.user?.username,
+  },
   actions: {
     async loginUser(loginData) {
       const profile = await loginUser(loginData, LOGIN_EXPIRATION_MIN);

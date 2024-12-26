@@ -1,6 +1,11 @@
 <script>
-export default {
+import { useCartStore } from '../stores/useCartStore';
+import { useUserStore } from '../stores/useUserStore';
 
+export default {
+  setup() {
+    return { userStore: useUserStore(), cartStore: useCartStore() };
+  },
   data() {
     return {
       links: [
@@ -18,6 +23,9 @@ export default {
   computed: {
     username() {
       return this.userStore.user?.username ?? '';
+    },
+    cartLength() {
+      return this.cartStore.products.size;
     },
   },
   async created() {
@@ -47,11 +55,11 @@ export default {
         </li>
         <li>
           <button type="button" class="primary" @click="onCartClick">
-            Cart
+            Cart <span v-if="cartLength">{{ cartLength }}</span>
           </button>
         </li>
         <li>
-          <button type="button" class="outlined">
+          <button type="button" class="outline">
             {{ username }}
           </button>
         </li>
