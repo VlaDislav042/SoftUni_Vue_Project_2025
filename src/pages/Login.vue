@@ -38,6 +38,7 @@ export default {
         return;
       }
       await this.userStore.loginUser(this.form);
+      this.$router.push({ path: '/products' });
     },
   },
 };

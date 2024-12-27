@@ -34,6 +34,8 @@ export default {
 </script>
 
 <template>
+  <h1>Recipes</h1>
+
   <progress v-if="isLoading" />
 
   <div v-else-if="visibleProducts.length > 0" class="products">
@@ -46,5 +48,13 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  position: relative;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
 }
 </style>

@@ -7,13 +7,6 @@ export default {
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <ul class="footer-links">
-        <li><a href="#" @click.prevent="$emit('select', 'Home')">Home</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'Products')">Products</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'About')">About</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'Contacts')">Contacts</a></li>
-        <li><a href="#" @click.prevent="$emit('select', 'Cart')">Cart</a></li>
-      </ul>
       <div class="social-icons">
         <a href="https://facebook.com" target="_blank" aria-label="Facebook">
           <i class="fab fa-facebook-f" />
@@ -41,6 +34,8 @@ export default {
   padding: 1.5rem;
   color: var(--pico-text);
   text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .footer-container {

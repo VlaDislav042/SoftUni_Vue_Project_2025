@@ -42,7 +42,7 @@ export default {
   <h1 style="text-align: center;">
     Cart
   </h1>
-  <div class="pageContainer">
+  <div v-if="products.length > 0" class="pageContainer">
     <progress v-if="isLoading" />
     <article v-else-if="products.length">
       <table>
@@ -72,6 +72,9 @@ export default {
       </table>
     </article>
   </div>
+  <div v-else>
+    <p>Look like you have nothing in your cart.</p>
+  </div>
 </template>
 
 <style scoped>
@@ -84,5 +87,16 @@ export default {
 
 article {
   width: 600px;
+}
+
+p {
+  font-size: 24px;
+  /* Increases the font size */
+  color: white;
+  /* Changes the text color to white */
+  text-align: center;
+  /* Centers the text */
+  margin-top: 20px;
+  /* Adds some space above the text */
 }
 </style>

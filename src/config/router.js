@@ -13,12 +13,54 @@ import { useUserStore } from '../stores/useUserStore';
 
 const routes = [
   { path: '/', name: 'home', component: Home },
-  { path: '/products', name: 'products', component: Products },
   { path: '/about', name: 'about', component: About },
   { path: '/contacts', name: 'contacts', component: Contacts },
-  { path: '/register', name: 'register', component: Register },
-  { path: '/cart', name: 'cart', component: Cart },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Cart,
+    beforeEnter: async () => {
+      const store = useUserStore();
+      if (!store.user) {
+        const isLogged = await store.reAuthUser();
+        if (!isLogged) {
+          return { name: 'login' };
+        }
+      }
+    },
+  },
   { path: '/products/:id', name: 'singleProduct', component: SingleProducts },
+  {
+    path: '/products',
+    name: 'recipes',
+    component: Products,
+    beforeEnter: async () => {
+      const store = useUserStore();
+      if (!store.user) {
+        const isLogged = await store.reAuthUser();
+        if (!isLogged) {
+          return { name: 'login' };
+        }
+      }
+    },
+  },
+
+  {
+    path: '/register',
+    name: 'register',
+    component: Register,
+    beforeEnter: async () => {
+      const store = useUserStore();
+      if (store.user) {
+        return false;
+      }
+
+      const isLogged = await store.reAuthUser();
+      if (isLogged) {
+        return false;
+      }
+    },
+  },
   {
     path: '/login',
     name: 'login',

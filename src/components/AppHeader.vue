@@ -10,7 +10,7 @@ export default {
     return {
       links: [
         { name: 'home', label: 'Home' },
-        { name: 'products', label: 'Products' },
+        { name: 'recipes', label: 'Recipes' },
         { name: 'about', label: 'About' },
         { name: 'contacts', label: 'Contacts' },
         { name: 'liked', label: 'Liked' },
@@ -23,6 +23,14 @@ export default {
   computed: {
     username() {
       return this.userStore.user?.username ?? '';
+    },
+    filteredLinks() {
+      // If username exists, filter out the login and register links
+      if (this.username) {
+        return this.links.filter(link => link.name !== 'login' && link.name !== 'register');
+      }
+      // If no user is logged in, return all links
+      return this.links;
     },
     cartLength() {
       return this.cartStore.products.size;
@@ -48,7 +56,7 @@ export default {
         </li>
       </ul>
       <ul class="nav-list">
-        <li v-for="link in links" :key="link.path">
+        <li v-for="link in filteredLinks" :key="link.path">
           <router-link :to="{ name: link.name }">
             {{ link.label }}
           </router-link>
@@ -59,7 +67,7 @@ export default {
           </button>
         </li>
         <li>
-          <button type="button" class="outline">
+          <button v-if="username" type="button" class="outline">
             {{ username }}
           </button>
         </li>
@@ -78,6 +86,8 @@ header {
   background-color: #fffbe6;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 nav {
