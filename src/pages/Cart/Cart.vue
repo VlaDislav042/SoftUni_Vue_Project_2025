@@ -40,7 +40,7 @@ export default {
 
 <template>
   <h1 style="text-align: center;">
-    Cart
+    Calculator
   </h1>
   <div v-if="products.length > 0" class="pageContainer">
     <progress v-if="isLoading" />

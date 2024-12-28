@@ -9,12 +9,28 @@ import NotFound from '../pages/NotFound.vue';
 import SingleProducts from '../pages/Product/components/SingleProducts.vue';
 import Products from '../pages/Products.vue';
 import Register from '../pages/Register/Register.vue';
+import User from '../pages/User.vue';
 import { useUserStore } from '../stores/useUserStore';
 
 const routes = [
   { path: '/', name: 'home', component: Home },
   { path: '/about', name: 'about', component: About },
   { path: '/contacts', name: 'contacts', component: Contacts },
+  {
+    path: '/user',
+    name: 'user',
+    component: User,
+    beforeEnter: async () => {
+      const store = useUserStore();
+      if (!store.user) {
+        const isLogged = await store.reAuthUser();
+        if (!isLogged) {
+          return { name: 'login' };
+        }
+      }
+    },
+  },
+
   {
     path: '/cart',
     name: 'cart',

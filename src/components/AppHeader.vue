@@ -43,6 +43,9 @@ export default {
     onCartClick() {
       this.$router.push({ name: 'cart' });
     },
+    onProfileClick() {
+      this.$router.push({ name: 'user' });
+    },
   },
 };
 </script>
@@ -63,11 +66,11 @@ export default {
         </li>
         <li>
           <button type="button" class="primary" @click="onCartClick">
-            Cart <span v-if="cartLength">{{ cartLength }}</span>
+            Calculator <span v-if="cartLength">{{ cartLength }}</span>
           </button>
         </li>
         <li>
-          <button v-if="username" type="button" class="outline">
+          <button v-if="username" type="button" class="outline" @click="onProfileClick">
             {{ username }}
           </button>
         </li>

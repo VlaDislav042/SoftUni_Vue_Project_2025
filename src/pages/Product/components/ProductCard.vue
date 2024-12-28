@@ -29,7 +29,7 @@ export default {
     <p><b>Calories</b>: {{ product.caloriesPerServing }} kcal </p>
     <footer>
       <button class="secondary outline" @click="cartStore.addToCart(product)">
-        Add to read 📖
+        Add to calculator
       </button>
       <button v-if="userStore.isUserLocked" type="button" class="contrast" :class="[isFavorite ? '' : 'outline']"
         @click="favoritesStore.toggleFavorite(product.id)">
