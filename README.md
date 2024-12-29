@@ -11,3 +11,4 @@ git clone https://github.com/VlaDislav042/SoftUni_Vue_Project_2025
 cd SoftUni_Vue_Project_2025
 npm install
 npm run dev
+✏️ Application Overview
