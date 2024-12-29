@@ -11,4 +11,10 @@ git clone https://github.com/VlaDislav042/SoftUni_Vue_Project_2025
 cd SoftUni_Vue_Project_2025
 npm install
 npm run dev
-✏️ Application Overview
+ ```
+ 
+ <br/>
+ 
+ 
+## :pencil2: Application Overview
+![chrome_wVCgOM5ngD](https://github.com/user-attachments/assets/fd1d7a63-d7ef-423e-8293-7b8e721718bd)
