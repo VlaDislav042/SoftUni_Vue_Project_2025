@@ -26,7 +26,7 @@ npm run dev
 ![chrome_IHNP53kdrS](https://github.com/user-attachments/assets/0489a623-ca02-453e-b960-a86ccfa45ea6)
  <br/>
 
-This is a simple application that demonstrates an E=commerce website. The application loads the recipes from the DummyJS fake API and displays them. You also have can login, with the data alrady written, because again I am using the auth section from the DummyJS. In the login and register pages, the forms are checked with vuelidate. In the recipes page, if you are logged in, you can like and add to your calculator recipes you want, and they will load. Also you have a dedicated profile page, where you can see the data from fake API loaded.
+This is a simple application that demonstrates an E-commerce website. The application loads the recipes from the DummyJS fake API and displays them. You also can login, with the data alrady written, because again I am using the auth option from the DummyJS. In the login and register pages, the forms are checked with vuelidate. In the recipes page, if you are logged in, you can like and add to your calculator recipes you want, and they will load. Also you have a dedicated profile page, where you can see the data from fake API loaded.
 
 <br/>
 
