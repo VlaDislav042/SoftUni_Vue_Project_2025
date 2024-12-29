@@ -18,3 +18,7 @@ npm run dev
  
 ## :pencil2: Application Overview
 ![chrome_wVCgOM5ngD](https://github.com/user-attachments/assets/fd1d7a63-d7ef-423e-8293-7b8e721718bd)
+
+![chrome_ziiZPY7ciw](https://github.com/user-attachments/assets/96c01eef-81bb-4f69-b274-5c9326e7cd7b)
+
+![chrome_IHNP53kdrS](https://github.com/user-attachments/assets/0489a623-ca02-453e-b960-a86ccfa45ea6)
