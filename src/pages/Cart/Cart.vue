@@ -73,7 +73,7 @@ export default {
     </article>
   </div>
   <div v-else>
-    <p>Look like you have nothing in your cart.</p>
+    <p>Looks like you have nothing in your calculator to sum.</p>
   </div>
 </template>
 
@@ -91,12 +91,8 @@ article {
 
 p {
   font-size: 24px;
-  /* Increases the font size */
   color: white;
-  /* Changes the text color to white */
   text-align: center;
-  /* Centers the text */
   margin-top: 20px;
-  /* Adds some space above the text */
 }
 </style>
