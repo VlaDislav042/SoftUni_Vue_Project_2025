@@ -9,7 +9,7 @@ To get started with E-Dine, clone the repository and set up the project environm
 ```bash
 git clone https://github.com/VlaDislav042/SoftUni_Vue_Project_2025
 cd SoftUni_Vue_Project_2025
-npm install
+npm install i
 npm run dev
  ```
  
